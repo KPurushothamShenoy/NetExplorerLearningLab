@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2><i class="fas fa-user-plus"></i> Join the Lab</h2>
+        <p>Start your networking journey today.</p>
+        
+        <form action="{{ url_for('register') }}" method="POST" id="register-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="e.g., net_pro24" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••" required>
+                <div id="password-strength" class="strength-meter"></div>
+            </div>
+            
+            <button type="submit" class="btn-primary auth-btn">Create Account</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/auth-validation.js') }}"></script>
+{% endblock %}

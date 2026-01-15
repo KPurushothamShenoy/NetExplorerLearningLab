@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="lab-grid">
+    <div class="osi-container" id="osi-stack">
+        <div class="osi-layer" data-layer="7">7. Application</div>
+        <div class="osi-layer" data-layer="6">6. Presentation</div>
+        <div class="osi-layer" data-layer="5">5. Session</div>
+        <div class="osi-layer" data-layer="4">4. Transport</div>
+        <div class="osi-layer" data-layer="3">3. Network</div>
+        <div class="osi-layer" data-layer="2">2. Data Link</div>
+        <div class="osi-layer active" data-layer="1">1. Physical</div>
+    </div>
+
+    <div class="control-panel">
+        <h2>Networking Lab: Level 1</h2>
+        <div id="mission-box">
+            <p><strong>Mission:</strong> Initialize the local node and verify the subnet configuration.</p>
+            <button id="start-btn" class="btn-primary">Initialize Docker Container</button>
+        </div>
+
+        <div id="lab-interface" class="hidden">
+            <div class="terminal-mock">
+                <p>> Container ID: <span id="container-display">None</span></p>
+                <p>> Target: 192.168.1.10</p>
+                <p>> Hint: Enter the default Class C subnet mask.</p>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="subnet-input" placeholder="Enter Subnet Mask (e.g. 255.0.0.0)">
+                <button id="submit-val" class="btn-success">Validate Config</button>
+            </div>
+        </div>
+
+        <div id="success-box" class="hidden">
+            <h3 style="color: #2ecc71;">✅ Task Complete!</h3>
+            <p>The Network layer (Layer 3) is now properly addressed.</p>
+            <button id="complete-btn" class="btn-finish">Generate & Upload Report to S3</button>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/osi-visual.js') }}"></script>
+<script src="{{ url_for('static', filename='js/lab-engine.js') }}"></script>
+{% endblock %}

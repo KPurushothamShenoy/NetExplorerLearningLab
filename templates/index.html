@@ -1,0 +1,44 @@
+        {% extends "base.html" %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-text">
+        <h1>Master Networking Through <span class="text-highlight">Containerization</span></h1>
+        <p>Deploy real Docker nodes, configure virtual networks, and save your progress to the AWS Cloud.</p>
+        {% if not current_user.is_authenticated %}
+            <div class="hero-btns">
+                <a href="{{ url_for('register') }}" class="btn-primary main-btn">Get Started Free</a>
+                <a href="#osi-info" class="btn-secondary">Learn OSI Model</a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('lab') }}" class="btn-primary main-btn">Enter Learning Lab</a>
+        {% endif %}
+    </div>
+</section>
+
+<section id="osi-info" class="info-grid">
+    <div class="info-card">
+        <i class="fas fa-layer-group fa-3x"></i>
+        <h3>Interactive OSI Stack</h3>
+        <p>Visualize the 7 layers of networking as you solve configuration challenges in real-time.</p>
+    </div>
+    <div class="info-card">
+        <i class="fab fa-docker fa-3x"></i>
+        <h3>Docker Simulation</h3>
+        <p>Every lab session spins up a dedicated Linux container with isolated memory and networking.</p>
+    </div>
+    <div class="info-card">
+        <i class="fab fa-aws fa-3x"></i>
+        <h3>Cloud Reports</h3>
+        <p>Your performance data and network topologies are automatically archived in AWS S3.</p>
+    </div>
+</section>
+
+<section class="diagram-section">
+    <h2>The 7 Layers of OSI</h2>
+    
+    <div class="osi-explainer">
+        <p>In our lab, you will primarily focus on <strong>Layer 3 (Network)</strong> and <strong>Layer 4 (Transport)</strong> using Docker's bridge networking capabilities.</p>
+    </div>
+</section>
+{% endblock %}

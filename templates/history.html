@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Lab History</h2>
+<p>Reports stored in S3 Bucket: <code>{{ config.S3_BUCKET_NAME }}</code></p>
+
+<div class="history-list">
+    {% if files %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Report Key (S3 Path)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in files %}
+                <tr>
+                    <td>{{ file }}</td>
+                    <td><a href="#" class="btn-small">View JSON</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No reports found. Complete a lab to see results here.</p>
+    {% endif %}
+</div>
+
+<style>
+    .history-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+    .history-table th, .history-table td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+    .history-table th { background: #f8f9fa; }
+    .btn-small { text-decoration: none; color: #3498db; font-weight: bold; }
+</style>
+{% endblock %}
