@@ -71,6 +71,6 @@ net-explorer-lab/
 └── history.html # S3-backed performance reports
 
 ## Docker Initialization
-Intialize Docker From Your System
+Intialize Docker From Your System  
 #docker build -t net_explorerlearning-node ./docker/lab-node
 
