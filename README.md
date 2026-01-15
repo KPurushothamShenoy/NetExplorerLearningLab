@@ -72,5 +72,5 @@ net-explorer-lab/
 
 ## Docker Initialization
 Intialize Docker From Your System
-docker build -t net_explorerlearning-node ./docker/lab-node
+#docker build -t net_explorerlearning-node ./docker/lab-node
 
